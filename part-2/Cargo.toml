@@ -1,5 +1,5 @@
 [package]
-name = "blockchain-tutorial-part-1"
+name = "blockchain-tutorial-part-2"
 version = "0.1.0"
 authors = ["ibaryshnikov"]
 edition = "2018"
@@ -8,4 +8,6 @@ edition = "2018"
 
 [dependencies]
 chrono = "0.4.9"
+num-bigint = "0.2.3"
+num-traits = "0.2.8"
 rust-crypto = "0.2.36"

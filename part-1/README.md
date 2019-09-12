@@ -1,4 +1,4 @@
-# First part of the blockchain tutorial
+# Part 1 of the blockchain tutorial
 
 A port of https://jeiwan.cc/posts/building-blockchain-in-go-part-1/
 
