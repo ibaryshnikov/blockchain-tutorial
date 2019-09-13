@@ -1,0 +1,17 @@
+[package]
+name = "blockchain-tutorial-part-3"
+version = "0.1.0"
+authors = ["ibaryshnikov"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+chrono = "0.4.9"
+num-bigint = "0.2.3"
+num-traits = "0.2.8"
+rmp-serde = "0.14.0"
+rust-crypto = "0.2.36"
+serde = "1.0.100"
+sled = "0.28.0"
+structopt = "0.3.1"
