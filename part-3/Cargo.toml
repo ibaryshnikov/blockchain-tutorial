@@ -4,14 +4,13 @@ version = "0.1.0"
 authors = ["ibaryshnikov"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-chrono = "0.4.9"
-num-bigint = "0.2.3"
-num-traits = "0.2.8"
+chrono = "0.4.10"
+num-bigint = "0.2.5"
+num-traits = "0.2.11"
 rmp-serde = "0.14.0"
 rust-crypto = "0.2.36"
-serde = "1.0.100"
-sled = "0.28.0"
-structopt = "0.3.1"
+serde = "1.0.104"
+serde_derive = "1.0.104"
+sled = "0.30.3"
+structopt = "0.3.8"

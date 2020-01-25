@@ -1,4 +1,4 @@
-use sled::{Db, Error as DbError};
+use sled::{Error as DbError};
 use structopt::StructOpt;
 
 mod block;
@@ -14,7 +14,7 @@ use proofofwork::ProofOfWork;
 fn main() -> Result<(), DbError> {
     let options = Options::from_args();
 
-    let db = Db::open("blockchain_db")?;
+    let db = sled::open("blockchain_db")?;
     let mut bc = BlockChain::new(&db)?;
 
     match options.command {

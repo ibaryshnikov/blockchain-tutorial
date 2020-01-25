@@ -1,5 +1,5 @@
 use chrono::prelude::*;
-use serde::{Deserialize, Serialize};
+use serde_derive::{Deserialize, Serialize};
 
 use crate::proofofwork::ProofOfWork;
 

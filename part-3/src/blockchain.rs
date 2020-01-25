@@ -1,4 +1,4 @@
-use sled::{Db, Error as DbError};
+use sled::{Db, Error as DbError, TransactionResult};
 
 use crate::block::Block;
 
@@ -11,7 +11,7 @@ pub struct BlockChain<'a> {
 
 impl<'a> BlockChain<'a> {
     pub fn new(db: &'a Db) -> Result<Self, DbError> {
-        let tip = db
+        let result: TransactionResult<String> = db
             .transaction(|db| {
                 let tip = match db.get(LAST_HASH)? {
                     Some(data) => {
@@ -28,8 +28,8 @@ impl<'a> BlockChain<'a> {
                     }
                 };
                 Ok(tip)
-            })
-            .expect("Should initialize the blockchain");
+            });
+        let tip = result.expect("Should initialize the blockchain");
         Ok(BlockChain { tip, db })
     }
 
@@ -43,14 +43,14 @@ impl<'a> BlockChain<'a> {
 
         let block = Block::new(data, &last_hash);
 
-        self.db
+        let result: TransactionResult<()> = self.db
             .transaction(|db| {
                 let serialized = rmp_serde::to_vec(&block).expect("Should serialize a block");
                 db.insert(block.hash.as_bytes(), serialized)?;
                 db.insert(LAST_HASH, block.hash.as_bytes())?;
                 Ok(())
-            })
-            .expect("Should write a new block to db");
+            });
+        result.expect("Should write a new block to db");
 
         self.tip = block.hash;
 

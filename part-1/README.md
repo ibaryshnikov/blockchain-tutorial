@@ -5,5 +5,5 @@ A port of https://jeiwan.cc/posts/building-blockchain-in-go-part-1/
 ## Running the example
 
 ```
-cargo run
+cargo run --release
 ```
