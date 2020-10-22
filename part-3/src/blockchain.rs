@@ -1,4 +1,5 @@
-use sled::{Db, Error as DbError, TransactionResult};
+use sled::{Db, Error as DbError};
+use sled::transaction::TransactionResult;
 
 use crate::block::Block;
 
